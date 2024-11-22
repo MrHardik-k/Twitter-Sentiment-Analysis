@@ -64,13 +64,13 @@ The final model was deployed using Hugging Face for seamless deployment and acce
 Below are visual representations of the model's performance:
 - **Classification Report**
 
-  ![image](https://github.com/user-attachments/assets/f15e29ed-6ed3-490b-b2b0-347cb8c08b1d)
+  ![image](https://github.com/user-attachments/assets/38012de9-6d9e-41a2-936e-adc669c8fbf2)
 - **F1-Score**
 
-  ![image](https://github.com/user-attachments/assets/d5fa7fd1-d699-4a6b-b656-3e6fef9f9171)
+  ![image](https://github.com/user-attachments/assets/6407c28b-12aa-40b2-ba29-cf3f91b0538d)
 - **Confusion Matrix**
 
-  ![image](https://github.com/user-attachments/assets/42a5e136-56de-4e7b-992c-4654c1eaa571)
+  ![image](https://github.com/user-attachments/assets/bcccbde6-87a1-4297-b177-84ca5973ff3f)
 
 ## Contributors
 - [Soumya Dhakad](https://github.com/soumya-1712)
