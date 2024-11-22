@@ -1,6 +1,3 @@
-*.npy filter=lfs diff=lfs merge=lfs -text
-*.csv filter=lfs diff=lfs merge=lfs -text
-*.h5 filter=lfs diff=lfs merge=lfs -text
 Results/my_model.weights.h5 filter=lfs diff=lfs merge=lfs -text
 Data/Xtrain.npy filter=lfs diff=lfs merge=lfs -text
 Data/proccessed_data.csv filter=lfs diff=lfs merge=lfs -text
