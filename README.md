@@ -73,6 +73,9 @@ Below are visual representations of the model's performance:
   ![image](https://github.com/user-attachments/assets/42a5e136-56de-4e7b-992c-4654c1eaa571)
 
 ## Contributors
-- Soumya Dhakad, Hardik Kanzariya, Aman Raj, Priyanshu Pandey
+- [Soumya Dhakad](https://github.com/soumya-1712)
+- [Hardik Kanzariya](https://github.com/Hardik-K-N)
+- [Aman Raj](https://github.com/Amanraj4482)
+- [Priyanshu Pandey](https://github.com/Harshpf)
 
 ---
