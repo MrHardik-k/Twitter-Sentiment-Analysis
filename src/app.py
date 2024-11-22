@@ -13,7 +13,6 @@ from fastapi import FastAPI, HTTPException
 app = FastAPI()
 
 nltk.download('wordnet')
-# Load your TensorFlow model
 model = tf.keras.models.load_model("my_model.h5")
 lemmatizer=WordNetLemmatizer()
 maxlen = 41
@@ -21,12 +20,11 @@ with open('tokenizer.json', 'r', encoding='utf-8') as f:
     tokenizer = tokenizer_from_json(json.load(f))
 
 def preprocessing(text):
-    # Ensure the input is a string, otherwise return an empty string
     if not isinstance(text, str):
         return ''
 
-    cleaned_text = re.sub(r'(http|https|www)\S+', '', text)  # Remove URLs
-    cleaned_text = re.sub(r'[@#]\w+', '', cleaned_text) # Remove mentions (like @username) and hashtgs
+    cleaned_text = re.sub(r'(http|https|www)\S+', '', text)  
+    cleaned_text = re.sub(r'[@#]\w+', '', cleaned_text)
 
     cleaned_text = re.sub(r'[^a-zA-Z\s]', '', text)
     cleaned_text = cleaned_text.replace('\n', ' ')
@@ -44,7 +42,6 @@ def getPrediction(input):
     input = tokenizer.texts_to_sequences(input['text'])
     input = pad_sequences(input, maxlen = maxlen,  padding = 'post', truncating = 'post')
     prediction = model.predict(input, verbose=0)
-    # calculate confidence score
     confidence_score = np.max(prediction, axis=1)/np.sum(prediction, axis=1)
     result = np.argmax(prediction, axis=1)
     for i in range(len(confidence_score)):
@@ -64,16 +61,14 @@ async def predict(text: str):
         "prediction": getSentiment(prediction) + " Statement",
         "confidence": f"{confidence_score * 100:.2f}%"
     }
-       
-# Streamlit UI
+
 st.title("Sentiment Analysis")
 text = st.text_area("Enter Text...")
 
 if text:
-    prediction, confidence_score = getPrediction([text])  # Modify if preprocessing is needed
-    # Convert prediction to a human-readable format
+    prediction, confidence_score = getPrediction([text]) 
     response = {"prediction": getSentiment(prediction[0]) + " Statement",
-                "confidence": "{:.2f}".format(float(confidence_score[0] * 100)) + "%"}  # Adjust as necessary for output formatting
+                "confidence": "{:.2f}".format(float(confidence_score[0] * 100)) + "%"}  
     st.json(response)
 
 
